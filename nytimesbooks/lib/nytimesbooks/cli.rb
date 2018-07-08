@@ -14,15 +14,15 @@ class Nytimesbooks::CLI
       input = gets.chomp
     case input
     when "1"
-      puts "combined_fiction"
+      combined_fiction
     when "2"
-      puts "hardcover_fiction"
+      hardcover_fiction
     when "3"
-      puts "combined_nonfiction"
+      combined_nonfiction
     when "4"
-      puts "hardcover_nonfiction"
+      hardcover_nonfiction
     when "5"
-      puts "paperback_nonfiction"
+      paperback_nonfiction
     when "exit"
       goodbye
     else
@@ -30,6 +30,21 @@ class Nytimesbooks::CLI
     end
   end
 end
+
+   def combined_fiction
+   end
+
+   def hardcover_fiction
+   end
+
+   def combined_nonfiction
+   end
+
+   def hardcover_nonfiction
+   end
+
+   def paperback_nonfiction
+   end
 
     def goodbye
       puts "Enjoy your reading!"
