@@ -32,18 +32,25 @@ class Nytimesbooks::CLI
 end
 
    def combined_fiction
+     #scraped
+     puts "5 books in combined print & ebook fiction"
    end
 
    def hardcover_fiction
+     #scraped
+     puts "5 books in hardcover fiction"
    end
 
    def combined_nonfiction
+     puts "5 books in combined print & ebook Nonfiction"
    end
 
    def hardcover_nonfiction
+     puts "5 books in hardcover Nonfiction"
    end
 
    def paperback_nonfiction
+     puts "5 books in paperback nonfiction"
    end
 
     def goodbye
