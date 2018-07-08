@@ -32,8 +32,10 @@ class Nytimesbooks::CLI
 end
 
    def combined_fiction
-     #scraped
-     puts "5 books in combined print & ebook fiction"
+     bookarray = Nytimesbooks::Book.combined_fiction
+     bookarray.each_with_index do |book, i|
+       puts "#{i+1}. #{book.name} #{book.author}"
+     end
    end
 
    def hardcover_fiction
