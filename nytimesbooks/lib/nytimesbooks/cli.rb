@@ -1,4 +1,5 @@
 class Nytimesbooks::CLI
+  attr_reader :combined_fiction, :hardcover_fiction, :paperback_fiction, :combined_nonfiction, :hardcover_nonfiction, :paperback_nonfiction, :paperback_howto, :childrens_middle, :childrens_picture, :childrens_series, :young_adult
 
   def call
     puts "Welcome to the New York Times Best Selling Books list!"
@@ -31,19 +32,19 @@ end
       input = gets.chomp.downcase
     case input
     when "1"
-      bookarray = Nytimesbooks::Book.combined_fiction
-      bookarray.each_with_index do |book, i|
+      @combined_fiction = Nytimesbooks::Book.combined_fiction
+      @combined_fiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
       goodbye
     when "2"
-      bookarray = Nytimesbooks::Book.hardcover_fiction
-      bookarray.each_with_index do |book, i|
+      @hardcover_fiction = Nytimesbooks::Book.hardcover_fiction
+      @hardcover_fiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
     when "3"
-      bookarray = Nytimesbooks::Book.paperback_fiction
-      bookarray.each_with_index do |book, i|
+      @paperback_fiction = Nytimesbooks::Book.paperback_fiction
+      @paperback_fiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
     when "exit"
@@ -59,24 +60,24 @@ end
       input = gets.chomp.downcase
     case input
     when "1"
-      bookarray = Nytimesbooks::Book.combined_nonfiction
-      bookarray.each_with_index do |book, i|
+      @combined_nonfiction = Nytimesbooks::Book.combined_nonfiction
+      @combined_nonfiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
       goodbye
     when "2"
-      bookarray = Nytimesbooks::Book.hardcover_nonfiction
-      bookarray.each_with_index do |book, i|
+      @hardcover_nonfiction = Nytimesbooks::Book.hardcover_nonfiction
+      @hardcover_nonfiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
     when "3"
-      bookarray = Nytimesbooks::Book.paperback_nonfiction
-      bookarray.each_with_index do |book, i|
+      @paperback_nonfiction = Nytimesbooks::Book.paperback_nonfiction
+      @paperback_nonfiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
     when "4"
-      bookarray = Nytimesbooks::Book.paperback_howto
-      bookarray.each_with_index do |book, i|
+      @paperback_howto = Nytimesbooks::Book.paperback_howto
+      @paperback_howto.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
     when "exit"
@@ -92,24 +93,24 @@ end
         input = gets.chomp.downcase
       case input
       when "1"
-        bookarray = Nytimesbooks::Book.childrens_middle
-        bookarray.each_with_index do |book, i|
+        @childrens_middle = Nytimesbooks::Book.childrens_middle
+        @childrens_middle.each_with_index do |book, i|
           puts "#{i+1}. #{book.name} #{book.author}"
         end
         goodbye
       when "2"
-        bookarray = Nytimesbooks::Book.childrens_picture
-        bookarray.each_with_index do |book, i|
+        @childrens_picture = Nytimesbooks::Book.childrens_picture
+        @childrens_picture.each_with_index do |book, i|
           puts "#{i+1}. #{book.name} #{book.author}"
         end
       when "3"
-        bookarray = Nytimesbooks::Book.childrens_series
-        bookarray.each_with_index do |book, i|
+        @childrens_series = Nytimesbooks::Book.childrens_series
+        @childrens_series.each_with_index do |book, i|
           puts "#{i+1}. #{book.name} #{book.author}"
         end
       when "4"
-        bookarray = Nytimesbooks::Book.young_adult
-        bookarray.each_with_index do |book, i|
+        @young_adult = Nytimesbooks::Book.young_adult
+        @young_adult.each_with_index do |book, i|
           puts "#{i+1}. #{book.name} #{book.author}"
         end
       when "exit"
