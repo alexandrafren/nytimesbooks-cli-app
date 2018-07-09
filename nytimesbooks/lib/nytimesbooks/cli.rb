@@ -4,6 +4,7 @@ class Nytimesbooks::CLI
   def call
     puts "Welcome to the New York Times Best Selling Books list!"
     main_categories
+    goodbye
   end
 
   def main_categories
@@ -36,12 +37,13 @@ end
       @combined_fiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
-      goodbye
+      combined_fiction
     when "2"
       @hardcover_fiction = Nytimesbooks::Book.hardcover_fiction
       @hardcover_fiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
+      hardcover_fiction
     when "3"
       @paperback_fiction = Nytimesbooks::Book.paperback_fiction
       @paperback_fiction.each_with_index do |book, i|
@@ -64,7 +66,6 @@ end
       @combined_nonfiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
-      goodbye
     when "2"
       @hardcover_nonfiction = Nytimesbooks::Book.hardcover_nonfiction
       @hardcover_nonfiction.each_with_index do |book, i|
@@ -119,6 +120,44 @@ end
         puts "I don't understand your input. Please try again."
     end
   end
+
+    def combined_fiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+    end
+
+    def hardcover_fiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@hardcover_fiction[input - 1].name} #{@hardcover_fiction[input -1].author} #{@hardcover_fiction[input - 1].bookdescription}"
+    end
+
+    def combined_fiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+    end
+
+    def combined_fiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+    end
+
+    def combined_fiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+    end
+
+    def combined_fiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+    end
+
+
 
 
     def goodbye
