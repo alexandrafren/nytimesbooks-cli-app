@@ -1,5 +1,5 @@
 class Nytimesbooks::Book
-  attr_accessor :name, :author, :bookdescription, :url
+  attr_accessor :name, :author, :bookdescription
 
   def self.combined_fiction
     puts "Combined Print & E-Book Fiction"
@@ -10,7 +10,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       combined_fiction_array << new_book
     end
     combined_fiction_array
@@ -25,7 +24,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       hardcover_fiction_array << new_book
     end
     hardcover_fiction_array
@@ -40,7 +38,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       paperback_fiction_array << new_book
     end
     paperback_fiction_array
@@ -55,7 +52,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       combined_nonfiction_array << new_book
     end
     combined_nonfiction_array
@@ -70,7 +66,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       hardcover_nonfiction_array << new_book
     end
     hardcover_nonfiction_array
@@ -85,7 +80,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       paperback_nonfiction_array << new_book
     end
     paperback_nonfiction_array
@@ -100,7 +94,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       paperback_howto_array << new_book
     end
     paperback_howto_array
@@ -115,7 +108,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       childrens_middle_array << new_book
     end
     childrens_middle_array
@@ -130,7 +122,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       children_picture_array << new_book
     end
     children_picture_array
@@ -145,7 +136,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       children_series_array << new_book
     end
     children_series_array
@@ -160,7 +150,6 @@ class Nytimesbooks::Book
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
-      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
       young_adult_array << new_book
     end
     young_adult_array
