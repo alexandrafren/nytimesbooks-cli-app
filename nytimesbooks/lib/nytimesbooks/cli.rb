@@ -67,11 +67,13 @@ end
       @combined_nonfiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
+      combined_nonfiction
     when "2"
       @hardcover_nonfiction = Nytimesbooks::Book.hardcover_nonfiction
       @hardcover_nonfiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
+      hardcover_nonfiction
     when "3"
       @paperback_nonfiction = Nytimesbooks::Book.paperback_nonfiction
       @paperback_nonfiction.each_with_index do |book, i|
@@ -138,6 +140,18 @@ end
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
       input = gets.chomp.to_i
       puts "#{@paperback_fiction[input - 1].name} #{@paperback_fiction[input -1].author} #{@paperback_fiction[input - 1].bookdescription}"
+    end
+
+    def combined_nonfiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@combined_nonfiction[input - 1].name} #{@combined_nonfiction[input -1].author} #{@combined_nonfiction[input - 1].bookdescription}"
+    end
+
+    def hardcover_nonfiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@hardcover_nonfiction[input - 1].name} #{@hardcover_nonfiction[input -1].author} #{@hardcover_nonfiction[input - 1].bookdescription}"
     end
 
     def goodbye
