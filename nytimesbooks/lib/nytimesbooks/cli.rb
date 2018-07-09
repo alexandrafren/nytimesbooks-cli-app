@@ -86,6 +86,40 @@ end
   end
   end
 
+    def childrens_menu
+      puts "There are 4 Childrens categories: 1. Childrens Middle Grade Hardcover 2. Children's Picture Books 3. Children's Series 4. Young Adult Hardcover"
+      puts "Which are you interested in? Type 1-4 or exit to leave the program."
+        input = gets.chomp.downcase
+      case input
+      when "1"
+        bookarray = Nytimesbooks::Book.childrens_middle
+        bookarray.each_with_index do |book, i|
+          puts "#{i+1}. #{book.name} #{book.author}"
+        end
+        goodbye
+      when "2"
+        bookarray = Nytimesbooks::Book.childrens_picture
+        bookarray.each_with_index do |book, i|
+          puts "#{i+1}. #{book.name} #{book.author}"
+        end
+      when "3"
+        bookarray = Nytimesbooks::Book.childrens_series
+        bookarray.each_with_index do |book, i|
+          puts "#{i+1}. #{book.name} #{book.author}"
+        end
+      when "4"
+        bookarray = Nytimesbooks::Book.young_adult
+        bookarray.each_with_index do |book, i|
+          puts "#{i+1}. #{book.name} #{book.author}"
+        end
+      when "exit"
+        goodbye
+      else
+        puts "I don't understand your input. Please try again."
+    end
+  end
+
+
     def goodbye
       puts "Enjoy your reading!"
     end
