@@ -8,7 +8,8 @@ class Nytimesbooks::CLI
   end
 
   def main_categories
-    puts "Are you interested in seeing Fiction, Nonfiction, or Childrens Best Sellers lists? (Type exit to leave program)"
+    puts "Are you interested in seeing Fiction, Nonfiction, or Childrens Best Sellers lists?"
+    puts "(Type exit to leave program)"
     input = nil
     while input != "exit"
       input = gets.chomp.downcase
@@ -28,7 +29,8 @@ class Nytimesbooks::CLI
 end
 
   def fiction_menu
-    puts "There are 3 Fiction categories: 1. Combined Print & E-Book Fiction 2. Hardcover Fiction 3. Paperback Trade Fiction"
+    puts "There are 3 Fiction categories:"
+    puts "1. Combined Print & E-Book Fiction 2. Hardcover Fiction 3. Paperback Trade Fiction"
     puts "Which are you interested in? Type 1-3 or exit to leave the program."
       input = gets.chomp.downcase
     case input
@@ -58,7 +60,8 @@ end
 end
 
   def nonfiction_menu
-    puts "There are 3 Nonfiction categories: 1. Combined Print & E-Book Nonfiction 2. Hardcover Nonfiction 3. Paperback Nonfiction"
+    puts "There are 3 Nonfiction categories:"
+    puts "1. Combined Print & E-Book Nonfiction 2. Hardcover Nonfiction 3. Paperback Nonfiction"
     puts "Which are you interested in? Type 1-4 or exit to leave the program."
       input = gets.chomp.downcase
     case input
@@ -88,7 +91,8 @@ end
   end
 
     def childrens_menu
-      puts "There are 4 Childrens categories: 1. Childrens Middle Grade Hardcover 2. Children's Picture Books 3. Children's Series 4. Young Adult Hardcover"
+      puts "There are 4 Childrens categories:"
+      puts "1. Childrens Middle Grade Hardcover 2. Children's Picture Books 3. Children's Series 4. Young Adult Hardcover"
       puts "Which are you interested in? Type 1-4 or exit to leave the program."
         input = gets.chomp.downcase
       case input
@@ -126,14 +130,27 @@ end
 
     def combined_fiction
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_i < 16 && input.to_i > 0
+        input = input.to_i
+         puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+       else
+         puts "I don't understand you input. Please try again."
+         combined_fiction
+      end
     end
 
     def hardcover_fiction
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@hardcover_fiction[input - 1].name} #{@hardcover_fiction[input -1].author} #{@hardcover_fiction[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      else
+         input = input.to_i
+         puts "#{@hardcover_fiction[input - 1].name} #{@hardcover_fiction[input -1].author} #{@hardcover_fiction[input - 1].bookdescription}"
+      end
     end
 
     def paperback_fiction
