@@ -37,7 +37,10 @@ end
       end
       goodbye
     when "2"
-      puts "nonfiction_menu"
+      bookarray = Nytimesbooks::Book.hardcover_fiction
+      bookarray.each_with_index do |book, i|
+        puts "#{i+1}. #{book.name} #{book.author}"
+      end
     when "3"
       puts "childrens_menu"
     when "exit"
