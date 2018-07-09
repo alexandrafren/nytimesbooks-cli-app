@@ -2,27 +2,21 @@ class Nytimesbooks::CLI
 
   def call
     puts "Welcome to the New York Times Best Selling Books list!"
-    categories
+    maincategories
   end
 
   def categories
-    puts "There are 5 main categories to choose from:"
-    puts "1.Combined Print & E-Book Fiction 2. Hardcover Fiction 3.Combined Print & E-Book Nonfiction 4.Hardcover Nonfiction 5.Paperback Nonfiction"
+    puts "Are you interested in seeing Fiction, Nonfiction, or Childrens Best Sellers lists? (Type exit to leave program)"
     input = nil
     while input != "exit"
-      puts "Which category would you like to explore further? Enter 1-5, or exit to leave the program."
-      input = gets.chomp
+      input = gets.chomp.downcase
     case input
-    when "1"
-      combined_fiction
-    when "2"
-      hardcover_fiction
-    when "3"
-      combined_nonfiction
-    when "4"
-      hardcover_nonfiction
-    when "5"
-      paperback_nonfiction
+    when "fiction"
+      fiction_menu
+    when "nonfiction"
+      nonfiction_menu
+    when "childrens"
+      childrens_menu
     when "exit"
       goodbye
     else
@@ -31,29 +25,13 @@ class Nytimesbooks::CLI
   end
 end
 
-   def combined_fiction
-     bookarray = Nytimesbooks::Book.combined_fiction
-     bookarray.each_with_index do |book, i|
-       puts "#{i+1}. #{book.name} #{book.author}"
-     end
-   end
+   #def combined_fiction
+     #bookarray = Nytimesbooks::Book.combined_fiction
+     #bookarray.each_with_index do |book, i|
+      # puts "#{i+1}. #{book.name} #{book.author}"
+     #end
+  # end
 
-   def hardcover_fiction
-     #scraped
-     puts "5 books in hardcover fiction"
-   end
-
-   def combined_nonfiction
-     puts "5 books in combined print & ebook Nonfiction"
-   end
-
-   def hardcover_nonfiction
-     puts "5 books in hardcover Nonfiction"
-   end
-
-   def paperback_nonfiction
-     puts "5 books in paperback nonfiction"
-   end
 
     def goodbye
       puts "Enjoy your reading!"
