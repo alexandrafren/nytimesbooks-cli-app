@@ -53,6 +53,39 @@ end
   end
 end
 
+  def nonfiction_menu
+    puts "There are 4 Nonfiction categories: 1. Combined Print & E-Book Nonfiction 2. Hardcover Nonfiction 3. Paperback Nonfiction 4.Advice, How-to, & Miscellaneous"
+    puts "Which are you interested in? Type 1-4 or exit to leave the program."
+      input = gets.chomp.downcase
+    case input
+    when "1"
+      bookarray = Nytimesbooks::Book.combined_nonfiction
+      bookarray.each_with_index do |book, i|
+        puts "#{i+1}. #{book.name} #{book.author}"
+      end
+      goodbye
+    when "2"
+      bookarray = Nytimesbooks::Book.hardcover_nonfiction
+      bookarray.each_with_index do |book, i|
+        puts "#{i+1}. #{book.name} #{book.author}"
+      end
+    when "3"
+      bookarray = Nytimesbooks::Book.paperback_nonfiction
+      bookarray.each_with_index do |book, i|
+        puts "#{i+1}. #{book.name} #{book.author}"
+      end
+    when "4"
+      bookarray = Nytimesbooks::Book.paperback_howto
+      bookarray.each_with_index do |book, i|
+        puts "#{i+1}. #{book.name} #{book.author}"
+      end
+    when "exit"
+      goodbye
+    else
+      puts "I don't understand your input. Please try again."
+  end
+  end
+
     def goodbye
       puts "Enjoy your reading!"
     end
