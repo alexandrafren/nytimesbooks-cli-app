@@ -53,19 +53,6 @@ end
   end
 end
 
-
-
-
-
-
-   #def combined_fiction
-     #bookarray = Nytimesbooks::Book.combined_fiction
-     #bookarray.each_with_index do |book, i|
-      # puts "#{i+1}. #{book.name} #{book.author}"
-     #end
-  # end
-
-
     def goodbye
       puts "Enjoy your reading!"
     end
