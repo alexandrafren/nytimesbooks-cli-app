@@ -58,7 +58,7 @@ end
 end
 
   def nonfiction_menu
-    puts "There are 4 Nonfiction categories: 1. Combined Print & E-Book Nonfiction 2. Hardcover Nonfiction 3. Paperback Nonfiction 4.Advice, How-to, & Miscellaneous"
+    puts "There are 3 Nonfiction categories: 1. Combined Print & E-Book Nonfiction 2. Hardcover Nonfiction 3. Paperback Nonfiction"
     puts "Which are you interested in? Type 1-4 or exit to leave the program."
       input = gets.chomp.downcase
     case input
@@ -79,11 +79,7 @@ end
       @paperback_nonfiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
-    when "4"
-      @paperback_howto = Nytimesbooks::Book.paperback_howto
-      @paperback_howto.each_with_index do |book, i|
-        puts "#{i+1}. #{book.name} #{book.author}"
-      end
+      paperback_nonfiction
     when "exit"
       goodbye
     else
@@ -152,6 +148,12 @@ end
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
       input = gets.chomp.to_i
       puts "#{@hardcover_nonfiction[input - 1].name} #{@hardcover_nonfiction[input -1].author} #{@hardcover_nonfiction[input - 1].bookdescription}"
+    end
+
+    def paperback_nonfiction
+      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+      input = gets.chomp.to_i
+      puts "#{@paperback_nonfiction[input - 1].name} #{@paperback_nonfiction[input -1].author} #{@paperback_nonfiction[input - 1].bookdescription}"
     end
 
     def goodbye

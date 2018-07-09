@@ -85,20 +85,6 @@ class Nytimesbooks::Book
     paperback_nonfiction_array
   end
 
-  def self.paperback_howto
-    puts "Advice, How-To & Miscellaneous"
-    doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/advice-how-to-and-miscellaneous/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Nonfiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2F&pgtype=Reference"))
-    paperback_howto_array = []
-    doc.css("div.book-body").each do |book|
-      new_book = self.new
-      new_book.name = book.css("h2.title").text
-      new_book.author = book.css("p.author").text
-      new_book.bookdescription = book.css("p.description").text
-      paperback_howto_array << new_book
-    end
-    paperback_howto_array
-  end
-
   def self.childrens_middle
     puts "Children's Middle Grade"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/childrens-middle-grade-hardcover/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Childrens&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fchildrens-middle-grade-hardcover%2F&pgtype=Reference"))
