@@ -107,7 +107,7 @@ class Nytimesbooks::Book
   end
 
   def self.childrens_middle
-    puts "Advice, How-To & Miscellaneous"
+    puts "Children's Middle Grade"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/childrens-middle-grade-hardcover/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Childrens&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fchildrens-middle-grade-hardcover%2F&pgtype=Reference"))
     childrens_middle_array = []
     doc.css("div.book-body").each do |book|
@@ -121,19 +121,19 @@ class Nytimesbooks::Book
     childrens_middle_array
   end
 
-  def self.paperback_howto
-    puts "Advice, How-To & Miscellaneous"
-    doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/advice-how-to-and-miscellaneous/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Nonfiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2F&pgtype=Reference"))
-    paperback_howto_array = []
+  def self.childrens_picture
+    puts "Children's Picture Books"
+    doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/picture-books/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Childrens&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fchildrens-middle-grade-hardcover%2F&pgtype=Reference"))
+    children_picture_array = []
     doc.css("div.book-body").each do |book|
       new_book = self.new
       new_book.name = book.css("h2.title").text
       new_book.author = book.css("p.author").text
       new_book.bookdescription = book.css("p.description").text
       #new_book.url = book.css("button.buy-button").atribute("data-amazon")
-      paperback_howto_array << new_book
+      children_picture_array << new_book
     end
-    paperback_howto_array
+    children_picture_array
   end
 
   def self.paperback_howto
