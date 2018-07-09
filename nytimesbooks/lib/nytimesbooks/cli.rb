@@ -49,6 +49,7 @@ end
       @paperback_fiction.each_with_index do |book, i|
         puts "#{i+1}. #{book.name} #{book.author}"
       end
+      paperback_fiction
     when "exit"
       goodbye
     else
@@ -133,32 +134,11 @@ end
       puts "#{@hardcover_fiction[input - 1].name} #{@hardcover_fiction[input -1].author} #{@hardcover_fiction[input - 1].bookdescription}"
     end
 
-    def combined_fiction
+    def paperback_fiction
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
       input = gets.chomp.to_i
-      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+      puts "#{@paperback_fiction[input - 1].name} #{@paperback_fiction[input -1].author} #{@paperback_fiction[input - 1].bookdescription}"
     end
-
-    def combined_fiction
-      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
-    end
-
-    def combined_fiction
-      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
-    end
-
-    def combined_fiction
-      puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
-    end
-
-
-
 
     def goodbye
       puts "Enjoy your reading!"
