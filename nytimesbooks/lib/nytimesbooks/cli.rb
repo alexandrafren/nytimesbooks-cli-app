@@ -42,7 +42,10 @@ end
         puts "#{i+1}. #{book.name} #{book.author}"
       end
     when "3"
-      puts "childrens_menu"
+      bookarray = Nytimesbooks::Book.paperback_fiction
+      bookarray.each_with_index do |book, i|
+        puts "#{i+1}. #{book.name} #{book.author}"
+      end
     when "exit"
       goodbye
     else
