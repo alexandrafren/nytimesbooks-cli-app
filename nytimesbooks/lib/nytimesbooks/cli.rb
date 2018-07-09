@@ -135,7 +135,8 @@ end
         goodbye
       elsif input.to_i < 16 && input.to_i > 0
         input = input.to_i
-         puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author} #{@combined_fiction[input - 1].bookdescription}"
+         puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author}."
+         puts "#{@combined_fiction[input - 1].bookdescription}"
        else
          puts "I don't understand you input. Please try again."
          combined_fiction
@@ -147,16 +148,29 @@ end
       input = gets.chomp
       if input == "exit"
         goodbye
-      else
+      elsif input.to_i < 16 && input.to_i > 0
          input = input.to_i
-         puts "#{@hardcover_fiction[input - 1].name} #{@hardcover_fiction[input -1].author} #{@hardcover_fiction[input - 1].bookdescription}"
+         puts "#{@hardcover_fiction[input - 1].name} #{@hardcover_fiction[input -1].author}."
+         puts "#{@hardcover_fiction[input - 1].bookdescription}"
+       else
+         puts "I don't understand you input. Please try again."
+         combined_fiction
       end
     end
 
     def paperback_fiction
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@paperback_fiction[input - 1].name} #{@paperback_fiction[input -1].author} #{@paperback_fiction[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_i < 16 && input.to_i > 0
+        input = input.to_i
+        puts "#{@paperback_fiction[input - 1].name} #{@paperback_fiction[input -1].author}."
+        puts "#{@paperback_fiction[input - 1].bookdescription}"
+      else
+        puts "I don't understand you input. Please try again."
+        combined_fiction
+      end
     end
 
     def combined_nonfiction
