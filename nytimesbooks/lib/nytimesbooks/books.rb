@@ -78,12 +78,17 @@ class Nytimesbooks::Book
 
   def paperback_nonfiction
     puts "Paperback Nonfiction"
-    book_1 = self.new
-    book_2 = self.new
-    book_3 = self.new
-    book_4 = self.new
-    book_5 = self.new
-    [book_1, book_2, book_3, book_4, book_5]
+    doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/paperback-nonfiction/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Nonfiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fsection%2Fbooks&pgtype=Reference"))
+    paperback_nonfiction_array = []
+    doc.css("div.book-body").each do |book|
+      new_book = self.new
+      new_book.name = book.css("h2.title").text
+      new_book.author = book.css("p.author").text
+      new_book.bookdescription = book.css("p.description").text
+      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
+      paperback_nonfiction_array << new_book
+    end
+    paperback_nonfiction_array
   end
 
 
