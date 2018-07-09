@@ -32,7 +32,7 @@ class Nytimesbooks::Book
   end
 
   def self.paperback_fiction
-    puts "Hardcover Fiction"
+    puts "Paperback Fiction"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/trade-fiction-paperback/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Fiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fcombined-print-and-e-book-fiction%2F&pgtype=Reference"))
     paperback_fiction_array = []
     doc.css("div.book-body").each do |book|
@@ -46,24 +46,34 @@ class Nytimesbooks::Book
     paperback_fiction_array
   end
 
-  def combined_nonfiction
+  def self.combined_nonfiction
     puts "Combined Print & E-Book Nonfiction"
-    book_1 = self.new
-    book_2 = self.new
-    book_3 = self.new
-    book_4 = self.new
-    book_5 = self.new
-    [book_1, book_2, book_3, book_4, book_5]
+    doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-nonfiction/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Nonfiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fhardcover-fiction%2F&pgtype=Reference"))
+    combined_nonfiction_array = []
+    doc.css("div.book-body").each do |book|
+      new_book = self.new
+      new_book.name = book.css("h2.title").text
+      new_book.author = book.css("p.author").text
+      new_book.bookdescription = book.css("p.description").text
+      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
+      combined_nonfiction_array << new_book
+    end
+    combined_nonfiction_array
   end
 
-  def hardcover_nonfiction
+  def self.hardcover_nonfiction
     puts "Hardcover Nonfiction"
-    book_1 = self.new
-    book_2 = self.new
-    book_3 = self.new
-    book_4 = self.new
-    book_5 = self.new
-    [book_1, book_2, book_3, book_4, book_5]
+    doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/hardcover-nonfiction/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Nonfiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Ftrade-fiction-paperback%2F&pgtype=Reference&mtrref=www.nytimes.com&gwh=631EB713B46E9B6EEA11D9D78A6A73A3&gwt=pay"))
+    hardcover_nonfiction_array = []
+    doc.css("div.book-body").each do |book|
+      new_book = self.new
+      new_book.name = book.css("h2.title").text
+      new_book.author = book.css("p.author").text
+      new_book.bookdescription = book.css("p.description").text
+      #new_book.url = book.css("button.buy-button").atribute("data-amazon")
+      hardcover_nonfiction_array << new_book
+    end
+    hardcover_nonfiction_array
   end
 
   def paperback_nonfiction
