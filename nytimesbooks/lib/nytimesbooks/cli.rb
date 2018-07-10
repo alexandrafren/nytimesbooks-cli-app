@@ -61,7 +61,7 @@ end
   def nonfiction_menu
     puts "There are 3 Nonfiction categories:"
     puts "1. Combined Print & E-Book Nonfiction 2. Hardcover Nonfiction 3. Paperback Nonfiction"
-    puts "Which are you interested in? Type 1-4 or exit to leave the program."
+    puts "Which are you interested in? Type 1-3 or exit to leave the program."
       input = gets.chomp.downcase
     case input
     when "1"
@@ -137,7 +137,7 @@ end
          puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author}."
          puts "#{@combined_fiction[input - 1].bookdescription}"
        else
-         puts "I don't understand you input. Please try again."
+         puts "I don't understand your input. Please try again."
          combined_fiction
       end
     end
@@ -152,7 +152,7 @@ end
          puts "#{@hardcover_fiction[input - 1].name} #{@hardcover_fiction[input -1].author}."
          puts "#{@hardcover_fiction[input - 1].bookdescription}"
        else
-         puts "I don't understand you input. Please try again."
+         puts "I don't understand your input. Please try again."
          hardcover_fiction
       end
     end
@@ -167,21 +167,39 @@ end
         puts "#{@paperback_fiction[input - 1].name} #{@paperback_fiction[input -1].author}."
         puts "#{@paperback_fiction[input - 1].bookdescription}"
       else
-        puts "I don't understand you input. Please try again."
+        puts "I don't understand your input. Please try again."
         paperback_fiction
       end
     end
 
     def combined_nonfiction
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@combined_nonfiction[input - 1].name} #{@combined_nonfiction[input -1].author} #{@combined_nonfiction[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_i < 16 && input.to_i > 0
+        input = input.to_i
+        puts "#{@combined_nonfiction[input - 1].name} #{@combined_nonfiction[input -1].author}."
+        puts "#{@combined_nonfiction[input - 1].bookdescription}"
+      else
+        puts "I don't understand your input. Please try again."
+        combined_nonfiction
+      end
     end
 
     def hardcover_nonfiction
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@hardcover_nonfiction[input - 1].name} #{@hardcover_nonfiction[input -1].author} #{@hardcover_nonfiction[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_i < 16 && input.to_i > 0
+        input = input.to_i
+        puts "#{@hardcover_nonfiction[input - 1].name} #{@hardcover_nonfiction[input -1].author}."
+        puts "#{@hardcover_nonfiction[input - 1].bookdescription}"
+      else
+        puts "I don't understand your input. Please try again."
+        hardcover_nonfiction
+      end
     end
 
     def paperback_nonfiction
