@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'alexandra.fren@gmail.com'"]
 
   spec.summary       = %q{This gem pulls the bestseller lists from NYT. It has a CLI that allows users to drill down further through each list.}
-  spec.description   = %q{This gem pulls the bestseller lists from NYT. It has a CLI that allows users to drill down further through each list, showing all of the books on each list and allowing users to select a book to see its description.}
+  spec.description   = %q{This gem pulls the bestseller lists from NYT. It has a CLI that allows users to drill down further through each list, showing all of the books on each list and allowing users to select a book to see its description. The new version fixes the executable.}
   spec.homepage      = "https://github.com/alexandrafren/nytimesbooks-cli-app"
 
   spec.files         = `git ls-files`.split($\)
