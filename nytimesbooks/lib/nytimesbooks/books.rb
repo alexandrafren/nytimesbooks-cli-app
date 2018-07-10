@@ -94,5 +94,4 @@ class Nytimesbooks::Book
     young_adult_array
   end
 
-
 end
