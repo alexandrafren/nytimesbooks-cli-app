@@ -1,8 +1,6 @@
 # Nytimesbooks
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nytimesbooks`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Nytimesbooks gem! This gem provides a CLI that allows the user to see all of the current bestselling books on each list. It then allows users to select a book from the list to see a description.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run nytimesbooks after installing the gem.
 
 ## Development
 
@@ -33,3 +31,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/'alexandrafren'/nytimesbooks.
+
+## License
+
+The gem is available as open source under the terms of the MIT License.
