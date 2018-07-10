@@ -9,8 +9,6 @@ class Nytimesbooks::CLI
   def main_categories
     puts "Are you interested in seeing Fiction, Nonfiction, or Childrens Best Sellers lists?"
     puts "(Type exit to leave program)"
-    input = nil
-    while input != "exit"
       input = gets.chomp.downcase
     case input
     when "fiction"
@@ -23,7 +21,6 @@ class Nytimesbooks::CLI
       goodbye
     else
       puts "I don't understand your input. Please try again."
-    end
   end
 end
 
@@ -136,6 +133,7 @@ end
         input = input.to_i
          puts "#{@combined_fiction[input - 1].name} #{@combined_fiction[input -1].author}."
          puts "#{@combined_fiction[input - 1].bookdescription}"
+         goodbye
        else
          puts "I don't understand your input. Please try again."
          combined_fiction
@@ -151,6 +149,7 @@ end
          input = input.to_i
          puts "#{@hardcover_fiction[input - 1].name} #{@hardcover_fiction[input -1].author}."
          puts "#{@hardcover_fiction[input - 1].bookdescription}"
+         goodbye
        else
          puts "I don't understand your input. Please try again."
          hardcover_fiction
@@ -166,6 +165,7 @@ end
         input = input.to_i
         puts "#{@paperback_fiction[input - 1].name} #{@paperback_fiction[input -1].author}."
         puts "#{@paperback_fiction[input - 1].bookdescription}"
+        goodbye
       else
         puts "I don't understand your input. Please try again."
         paperback_fiction
@@ -181,6 +181,7 @@ end
         input = input.to_i
         puts "#{@combined_nonfiction[input - 1].name} #{@combined_nonfiction[input -1].author}."
         puts "#{@combined_nonfiction[input - 1].bookdescription}"
+        goodbye
       else
         puts "I don't understand your input. Please try again."
         combined_nonfiction
@@ -196,6 +197,7 @@ end
         input = input.to_i
         puts "#{@hardcover_nonfiction[input - 1].name} #{@hardcover_nonfiction[input -1].author}."
         puts "#{@hardcover_nonfiction[input - 1].bookdescription}"
+        goodbye
       else
         puts "I don't understand your input. Please try again."
         hardcover_nonfiction
@@ -211,6 +213,7 @@ end
         input = input.to_i
         puts "#{@paperback_nonfiction[input - 1].name} #{@paperback_nonfiction[input -1].author}."
         puts "#{@paperback_nonfiction[input - 1].bookdescription}"
+        goodbye
       else
         puts "I don't understand your input. Please try again."
         paperback_nonfiction
@@ -226,6 +229,7 @@ end
         input.to_i
         puts "#{@childrens_middle[input - 1].name} #{@childrens_middle[input -1].author}."
         puts "#{@childrens_middle[input - 1].bookdescription}"
+        goodbye
       else
         puts "I don't understand your input. Please try again."
         childrens_middle
@@ -241,6 +245,7 @@ end
         input.to_i
         puts "#{@childrens_picture[input - 1].name} #{@childrens_picture[input -1].author}."
         puts "#{@childrens_picture[input - 1].bookdescription}"
+        goodbye
       else
         puts "I don't understand your input. Please try again."
         childrens_picture
@@ -256,6 +261,7 @@ end
         input.to_i
         puts "#{@childrens_series[input - 1].name} #{@childrens_series[input -1].author}."
         puts "#{@childrens_series[input - 1].bookdescription}"
+        goodbye
       else
         puts "I don't understand your input. Please try again."
         childrens_series
@@ -271,6 +277,7 @@ end
         input.to_i
         puts "#{@young_adult[input - 1].name} #{@young_adult[input -1].author}."
         puts "#{@young_adult[input - 1].bookdescription}"
+        goodbye
       else
         puts "I don't understand your input. Please try again."
         young_adult
