@@ -4,7 +4,6 @@ class Nytimesbooks::CLI
   def call
     puts "Welcome to the New York Times Best Selling Books list!"
     main_categories
-    goodbye
   end
 
   def main_categories
@@ -154,7 +153,7 @@ end
          puts "#{@hardcover_fiction[input - 1].bookdescription}"
        else
          puts "I don't understand you input. Please try again."
-         combined_fiction
+         hardcover_fiction
       end
     end
 
@@ -169,7 +168,7 @@ end
         puts "#{@paperback_fiction[input - 1].bookdescription}"
       else
         puts "I don't understand you input. Please try again."
-        combined_fiction
+        paperback_fiction
       end
     end
 
