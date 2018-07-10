@@ -204,14 +204,32 @@ end
 
     def paperback_nonfiction
       puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@paperback_nonfiction[input - 1].name} #{@paperback_nonfiction[input -1].author} #{@paperback_nonfiction[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_i < 16 && input.to_i > 0
+        input = input.to_i
+        puts "#{@paperback_nonfiction[input - 1].name} #{@paperback_nonfiction[input -1].author}."
+        puts "#{@paperback_nonfiction[input - 1].bookdescription}"
+      else
+        puts "I don't understand your input. Please try again."
+        paperback_nonfiction
+      end
     end
 
     def childrens_middle
       puts "Which of these books would you like to see a description of? Enter 1 - 10, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@childrens_middle[input - 1].name} #{@childrens_middle[input -1].author} #{@childrens_middle[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_i < 16 && input.to_i > 0
+        input.to_i
+        puts "#{@childrens_middle[input - 1].name} #{@childrens_middle[input -1].author}."
+        puts "#{@childrens_middle[input - 1].bookdescription}"
+      else
+        puts "I don't understand your input. Please try again."
+        childrens_middle
+      end
     end
 
     def childrens_picture
