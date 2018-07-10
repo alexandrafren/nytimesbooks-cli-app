@@ -99,7 +99,6 @@ end
           puts "#{i+1}. #{book.name} #{book.author}"
         end
         childrens_middle
-        goodbye
       when "2"
         @childrens_picture = Nytimesbooks::Book.childrens_picture
         @childrens_picture.each_with_index do |book, i|
