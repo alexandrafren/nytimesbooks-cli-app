@@ -21,6 +21,7 @@ class Nytimesbooks::CLI
       goodbye
     else
       puts "I don't understand your input. Please try again."
+      main_categories
   end
 end
 
