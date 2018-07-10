@@ -13,14 +13,6 @@ Gem::Specification.new do |spec|
   spec.description   = %q{This gem pulls the bestseller lists from NYT. It has a CLI that allows users to drill down further through each list, showing all of the books on each list and allowing users to select a book to see its description.}
   spec.homepage      = "https://github.com/alexandrafren/nytimesbooks-cli-app"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "http://mygemserver.com"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
