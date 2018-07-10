@@ -18,14 +18,7 @@ class Nytimesbooks::Book
     puts "Combined Print & E-Book Fiction"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-fiction/?action=click&contentCollection=Books&referrer=https%3A%2F%2Fwww.nytimes.com%2Fsection%2Fbooks&region=Body&module=CompleteListLink&version=Fiction&pgtype=Reference"))
     combined_fiction_array = []
-    #doc.css("div.book-body").each do |book|
-      #new_book = self.new
-    #  new_book.name = book.css("h2.title").text
-      #new_book.author = book.css("p.author").text
-      #new_book.bookdescription = book.css("p.description").text
-      #book = new_book(doc)
       combined_fiction_array = new_book(doc)
-    #end
     combined_fiction_array
   end
 
@@ -33,13 +26,7 @@ class Nytimesbooks::Book
     puts "Hardcover Fiction"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/hardcover-fiction/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Fiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2F&pgtype=Reference"))
     hardcover_fiction_array = []
-    doc.css("div.book-body").each do |book|
-      new_book = self.new
-      new_book.name = book.css("h2.title").text
-      new_book.author = book.css("p.author").text
-      new_book.bookdescription = book.css("p.description").text
-      hardcover_fiction_array << new_book
-    end
+      hardcover_fiction_array = new_book(doc)
     hardcover_fiction_array
   end
 
@@ -47,13 +34,7 @@ class Nytimesbooks::Book
     puts "Paperback Fiction"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/trade-fiction-paperback/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Fiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fcombined-print-and-e-book-fiction%2F&pgtype=Reference"))
     paperback_fiction_array = []
-    doc.css("div.book-body").each do |book|
-      new_book = self.new
-      new_book.name = book.css("h2.title").text
-      new_book.author = book.css("p.author").text
-      new_book.bookdescription = book.css("p.description").text
-      paperback_fiction_array << new_book
-    end
+      paperback_fiction_array = new_book(doc)
     paperback_fiction_array
   end
 
