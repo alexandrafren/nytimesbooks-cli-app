@@ -74,13 +74,7 @@ class Nytimesbooks::Book
     puts "Children's Picture Books"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/picture-books/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Childrens&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fchildrens-middle-grade-hardcover%2F&pgtype=Reference"))
     children_picture_array = []
-    doc.css("div.book-body").each do |book|
-      new_book = self.new
-      new_book.name = book.css("h2.title").text
-      new_book.author = book.css("p.author").text
-      new_book.bookdescription = book.css("p.description").text
-      children_picture_array << new_book
-    end
+      children_picture_array = new_book(doc)
     children_picture_array
   end
 
@@ -88,13 +82,7 @@ class Nytimesbooks::Book
     puts "Children's Series"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/series-books/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Childrens&referrer=https%3A%2F%2Fwww.nytimes.com%2Fsection%2Fbooks&pgtype=Reference"))
     children_series_array = []
-    doc.css("div.book-body").each do |book|
-      new_book = self.new
-      new_book.name = book.css("h2.title").text
-      new_book.author = book.css("p.author").text
-      new_book.bookdescription = book.css("p.description").text
-      children_series_array << new_book
-    end
+      children_series_array = new_book(doc)
     children_series_array
   end
 
