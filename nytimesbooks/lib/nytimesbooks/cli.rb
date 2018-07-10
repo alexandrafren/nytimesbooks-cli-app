@@ -249,14 +249,32 @@ end
 
     def childrens_series
       puts "Which of these books would you like to see a description of? Enter 1 - 10, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@childrens_series[input - 1].name} #{@childrens_series[input -1].author} #{@childrens_series[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_i < 16 && input.to_i > 0
+        input.to_i
+        puts "#{@childrens_series[input - 1].name} #{@childrens_series[input -1].author}."
+        puts "#{@childrens_series[input - 1].bookdescription}"
+      else
+        puts "I don't understand your input. Please try again."
+        childrens_series
+      end
     end
 
     def young_adult
       puts "Which of these books would you like to see a description of? Enter 1 - 10, or exit to leave."
-      input = gets.chomp.to_i
-      puts "#{@young_adult[input - 1].name} #{@young_adult[input -1].author} #{@young_adult[input - 1].bookdescription}"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_t < 16 && input.to_i > 0
+        input.to_i
+        puts "#{@young_adult[input - 1].name} #{@young_adult[input -1].author}."
+        puts "#{@young_adult[input - 1].bookdescription}"
+      else
+        puts "I don't understand your input. Please try again."
+        young_adult
+      end
     end
 
     def goodbye
