@@ -90,13 +90,7 @@ class Nytimesbooks::Book
     puts "Young Adult Hardcover"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/young-adult-hardcover/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=More&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2F&pgtype=Reference"))
     young_adult_array = []
-    doc.css("div.book-body").each do |book|
-      new_book = self.new
-      new_book.name = book.css("h2.title").text
-      new_book.author = book.css("p.author").text
-      new_book.bookdescription = book.css("p.description").text
-      young_adult_array << new_book
-    end
+      young_adult_array = new_book(doc)
     young_adult_array
   end
 
