@@ -42,13 +42,7 @@ class Nytimesbooks::Book
     puts "Combined Print & E-Book Nonfiction"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/combined-print-and-e-book-nonfiction/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Nonfiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Fhardcover-fiction%2F&pgtype=Reference"))
     combined_nonfiction_array = []
-    doc.css("div.book-body").each do |book|
-      new_book = self.new
-      new_book.name = book.css("h2.title").text
-      new_book.author = book.css("p.author").text
-      new_book.bookdescription = book.css("p.description").text
-      combined_nonfiction_array << new_book
-    end
+      combined_nonfiction_array = new_book(doc)
     combined_nonfiction_array
   end
 
@@ -56,13 +50,7 @@ class Nytimesbooks::Book
     puts "Hardcover Nonfiction"
     doc = Nokogiri::HTML(open("https://www.nytimes.com/books/best-sellers/hardcover-nonfiction/?module=DropDownNav&action=click&region=navbar&contentCollection=Books&version=Nonfiction&referrer=https%3A%2F%2Fwww.nytimes.com%2Fbooks%2Fbest-sellers%2Ftrade-fiction-paperback%2F&pgtype=Reference&mtrref=www.nytimes.com&gwh=631EB713B46E9B6EEA11D9D78A6A73A3&gwt=pay"))
     hardcover_nonfiction_array = []
-    doc.css("div.book-body").each do |book|
-      new_book = self.new
-      new_book.name = book.css("h2.title").text
-      new_book.author = book.css("p.author").text
-      new_book.bookdescription = book.css("p.description").text
-      hardcover_nonfiction_array << new_book
-    end
+      hardcover_nonfiction_array = new_book(doc)
     hardcover_nonfiction_array
   end
 
