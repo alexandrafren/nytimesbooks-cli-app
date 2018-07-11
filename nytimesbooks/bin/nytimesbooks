@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
 #executable
-require 'nytimesbooks'
+require_relative '../lib/nytimesbooks'
 Nytimesbooks::CLI.new.call
