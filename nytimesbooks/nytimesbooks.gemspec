@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files`.split($\)
   spec.executables   = ["nytimesbooks"]
-  spec.require_paths = ["lib", "lib/nytimesbooks]
+  spec.require_paths = ["lib", "lib/nytimesbooks"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
