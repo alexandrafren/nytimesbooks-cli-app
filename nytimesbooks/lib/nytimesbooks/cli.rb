@@ -7,15 +7,15 @@ class Nytimesbooks::CLI
   end
 
   def main_categories
-    puts "Are you interested in seeing Fiction, Nonfiction, or Childrens Best Sellers lists?"
+    puts "Are you interested in seeing 1. Fiction, 2. Nonfiction, or 3. Childrens Best Sellers lists?"
     puts "(Type exit to leave program)"
       input = gets.chomp.downcase
     case input
-    when "fiction"
+    when "1"
       fiction_menu
-    when "nonfiction"
+    when "2"
       nonfiction_menu
-    when "childrens"
+    when "3"
       childrens_menu
     when "exit"
       goodbye
@@ -98,25 +98,25 @@ end
         @childrens_middle.each_with_index do |book, i|
           puts "#{i+1}. #{book.name} #{book.author}"
         end
-        combined(@childrens_middle)
+        combined(@childrens_middle, 10)
       when "2"
         @childrens_picture = Nytimesbooks::Scraper.childrens_picture
         @childrens_picture.each_with_index do |book, i|
           puts "#{i+1}. #{book.name} #{book.author}"
         end
-        combined(@childrens_picture)
+        combined(@childrens_picture, 10)
       when "3"
         @childrens_series = Nytimesbooks::Scraper.childrens_series
         @childrens_series.each_with_index do |book, i|
           puts "#{i+1}. #{book.name} #{book.author}"
         end
-        combined(@childrens_series)
+        combined(@childrens_series, 10)
       when "4"
         @young_adult = Nytimesbooks::Scraper.young_adult
         @young_adult.each_with_index do |book, i|
           puts "#{i+1}. #{book.name} #{book.author}"
         end
-        combined(@young_adult)
+        combined(@young_adult, 10)
       when "exit"
         goodbye
       else
@@ -124,12 +124,12 @@ end
     end
   end
 
-  def combined(array)
-    puts "Which of these books would you like to see a description of? Enter 1 - 15, or exit to leave."
+  def combined(array, number = 15)
+    puts "Which of these books would you like to see a description of? Enter 1 - #{number}, or exit to leave."
     input = gets.chomp
     if input == "exit"
       goodbye
-    elsif input.to_i < 16 && input.to_i > 0
+    elsif input.to_i.between?(0, 16)
       input = input.to_i
        puts "#{array[input - 1].name} #{array[input -1].author}."
        puts "#{array[input - 1].bookdescription}"
