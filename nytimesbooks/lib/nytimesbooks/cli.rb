@@ -126,17 +126,20 @@ end
 
   def combined(array, number = 15)
     puts "Which of these books would you like to see a description of? Enter 1 - #{number}, or exit to leave."
-    input = gets.chomp
-    if input == "exit"
-      goodbye
-    elsif input.to_i.between?(0, 16)
-      input = input.to_i
-       puts "#{array[input - 1].name} #{array[input -1].author}."
-       puts "#{array[input - 1].bookdescription}"
-       goodbye
-     else
-       puts "I don't understand your input. Please try again."
-       combined
+    input = nil
+    until input == "exit"
+      input = gets.chomp
+      if input == "exit"
+        goodbye
+      elsif input.to_i.between?(0, 16)
+        input = input.to_i
+         puts "#{array[input - 1].name} #{array[input -1].author}."
+         puts "#{array[input - 1].bookdescription}"
+         puts "Please enter another number to see an additional description, or enter exit to close the program."
+      else
+         puts "I don't understand your input. Please try again."
+         combined
+       end
     end
   end
 
