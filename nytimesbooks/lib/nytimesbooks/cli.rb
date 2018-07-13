@@ -10,20 +10,20 @@ class Nytimesbooks::CLI
     puts "Are you interested in seeing 1. Fiction, 2. Nonfiction, or 3. Childrens Best Sellers lists?"
     puts "(Type exit to leave program)"
       input = gets.chomp.downcase
-    case input
-    when "1"
-      fiction_menu
-    when "2"
-      nonfiction_menu
-    when "3"
-      childrens_menu
-    when "exit"
-      goodbye
-    else
-      puts "I don't understand your input. Please try again."
-      main_categories
+      until input == "exit"
+        if input == "1"
+          fiction_menu
+        elsif input == "2"
+          nonfiction_menu
+        elsif input == "3"
+          childrens_menu
+        else
+          puts "I don't understand your input. Please try again."
+        end
+        input = gets.chomp.downcase
+     end
+     goodbye
   end
-end
 
   def fiction_menu
     puts "There are 3 Fiction categories:"
@@ -126,25 +126,26 @@ end
 
   def combined(array, number = 15)
     puts "Which of these books would you like to see a description of? Enter 1 - #{number}, or exit to leave."
-    input = nil
+    input = gets.chomp
     until input == "exit"
-      input = gets.chomp
-      if input == "exit"
-        goodbye
-      elsif input.to_i.between?(0, 16)
+      if input == "back"
+        main_categories
+      elsif input.to_i.between?(1, number)
         input = input.to_i
          puts "#{array[input - 1].name} #{array[input -1].author}."
          puts "#{array[input - 1].bookdescription}"
-         puts "Please enter another number to see an additional description, or enter exit to close the program."
+         puts "Please enter another number to see an additional description, back to return to the main menu, or enter exit to close the program."
       else
          puts "I don't understand your input. Please try again."
-         combined
+         combined(array, number)
        end
+       input = gets.chomp
     end
   end
 
     def goodbye
       puts "Enjoy your reading!"
+      exit
     end
 
 end
