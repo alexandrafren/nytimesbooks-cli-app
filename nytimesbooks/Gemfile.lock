@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nytimesbooks (0.1.2)
+    nytimesbooks (0.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -21,4 +21,4 @@ DEPENDENCIES
   rake (~> 10.0)
 
 BUNDLED WITH
-   1.16.2
+   1.17.3
